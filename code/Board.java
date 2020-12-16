@@ -3,6 +3,9 @@ package code;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+import code.Shape.Tetrominoe;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -12,7 +15,11 @@ import java.awt.event.KeyEvent;
 
 public class Board extends JPanel {
 
-    private final int BOARD_WIDTH = 10;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final int BOARD_WIDTH = 10;
     private final int BOARD_HEIGHT = 22;
     private final int PERIOD_INTERVAL = 300;
 
@@ -258,6 +265,7 @@ public class Board extends JPanel {
                 new Color(102, 204, 102), new Color(102, 102, 204),
                 new Color(204, 204, 102), new Color(204, 102, 204),
                 new Color(102, 204, 204), new Color(218, 170, 0)
+                
         };
 
         var color = colors[shape.ordinal()];
@@ -323,7 +331,7 @@ public class Board extends JPanel {
             // Java 12 switch expressions
             switch (keycode) {
 
-                case KeyEvent.VK_P -> pause();
+                case KeyEvent.VK_P  -> pause();
                 case KeyEvent.VK_LEFT -> tryMove(curPiece, curX - 1, curY);
                 case KeyEvent.VK_RIGHT -> tryMove(curPiece, curX + 1, curY);
                 case KeyEvent.VK_DOWN -> tryMove(curPiece.rotateRight(), curX, curY);
